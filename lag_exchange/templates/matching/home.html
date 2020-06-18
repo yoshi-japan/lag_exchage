@@ -1,0 +1,49 @@
+{% extends 'matching/base.html' %}
+{% block title %}
+{{ block.super }}
+{% endblock %}
+{% block content %}
+<div class="ui grid stackable">
+    <div class="eleven wide column">
+<!--        <div class="ui breadcrumb">-->
+<!--            <a class="section">TOP</a>-->
+<!--            <i class="right angle icon divider"></i>-->
+<!--            <a class="section">category</a>-->
+<!--            <i class="right angle icon divider"></i>-->
+<!--            <div class="active section">thread</div>-->
+<!--        </div>-->
+        <div><p>Hi, this is for language exchange.</p>
+            <p>How to host a video chat language exchange on this web site is following.</p>
+        <p>1. Register for <a href="https://remotehour.com/">Remotehour</a>.</p>
+            <p>2. Copy your Remotehour URL and hit Make a post botton to fill in the forms.</p>
+        <p>3. Just wait a second and start a conversation!</p>
+        <p>Orelse, You can just join a Host's Remotehour.
+        </p>
+            <h3>Happy language exchange :)</h3>
+        </div>
+        <div class="ui segment">
+            <div class="content">
+
+                <div class="header"><h3>New Posts</h3></div>
+                <div class="ui divided items">
+                    {% for post in post_list %}
+                    <div class="item">
+                        <div class="content">
+                            <div class="header">
+                                <h4>Remotehour URL: </h4><a>{{ post.zoom_url }}</a>
+                            </div>
+                            <div class="meta">
+                                <span class="name"><h4>{{post.user_name}}</h4></span><p></p>
+                                <span class = "country">{{post.country.born}}</span>
+                                <span class="date">{{post.created}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% include 'matching/pagination.html' %}
+    </div>
+</div>
+{% endblock %}
